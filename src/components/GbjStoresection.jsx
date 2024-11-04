@@ -2,8 +2,8 @@ import React from "react";
 
 const GBJstoreSection = () => {
   return (
-    <footer className="bg-[#C6318B] h-[500px] text-white p-40">
-      <div className="container mx-auto mb-20 grid grid-cols-4 gap-8">
+    <footer className="bg-[#C6318B] h-auto md:h-[500px] text-white p-5 md:p-40"> {/* Adjusted padding and height */}
+      <div className="container mx-auto mb-20 grid grid-cols-1 md:grid-cols-4 gap-8"> {/* Responsive grid columns */}
         {/* Logo Section */}
         <div>
           <h3 className="font-bold text-lg mb-4">Logo</h3>
