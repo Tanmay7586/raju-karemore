@@ -67,28 +67,28 @@ const Cart = () => {
   return (
     <div>
       <CartHero />
-      <div className="p-10">
-        <div className="container mx-auto rounded-lg px-8 bg-white py-16">
-          <table className="w-full my-10 text-left border-collapse">
+      <div className="p-4 sm:p-10">
+        <div className="container mx-auto rounded-lg px-4 sm:px-8 bg-white py-8 sm:py-16">
+          <table className="w-full my-4 sm:my-10 text-left border-collapse">
             <thead>
-              <tr className="border-b text-center">
-                <th className="py-4 px-2">Image</th>
-                <th className="py-4 px-2">Product</th>
-                <th className="py-4 px-2">Price</th>
-                <th className="py-4 px-2">Quantity</th>
-                <th className="py-4 px-2">Total</th>
-                <th className="py-4 px-2">Remove</th>
+              <tr className="border-b text-center text-sm sm:text-base">
+                <th className="py-2 px-2 sm:py-4">Image</th>
+                <th className="py-2 px-2 sm:py-4">Product</th>
+                <th className="py-2 px-2 sm:py-4">Price</th>
+                <th className="py-2 px-2 sm:py-4">Quantity</th>
+                <th className="py-2 px-2 sm:py-4">Total</th>
+                <th className="py-2 px-2 sm:py-4">Remove</th>
               </tr>
             </thead>
             <tbody>
               {cartItems.map((item) => (
-                <tr key={item.id} className="border-b text-center">
-                  <td className="py-4 px-2">
-                    <img src={item.image} alt={item.name} className="w-20 h-20 object-cover mx-auto" />
+                <tr key={item.id} className="border-b text-center text-sm sm:text-base">
+                  <td className="py-2 sm:py-4 px-2">
+                    <img src={item.image} alt={item.name} className="w-16 h-16 sm:w-20 sm:h-20 object-cover mx-auto" />
                   </td>
-                  <td className="py-4 px-2">{item.name}</td>
-                  <td className="py-4 px-2">${item.price.toFixed(2)}</td>
-                  <td className="py-4 px-2">
+                  <td className="py-2 sm:py-4 px-2">{item.name}</td>
+                  <td className="py-2 sm:py-4 px-2">${item.price.toFixed(2)}</td>
+                  <td className="py-2 sm:py-4 px-2">
                     <div className="flex items-center justify-center">
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -105,8 +105,8 @@ const Cart = () => {
                       </button>
                     </div>
                   </td>
-                  <td className="py-4 px-2">${(item.price * item.quantity).toFixed(2)}</td>
-                  <td className="py-4 px-2">
+                  <td className="py-2 sm:py-4 px-2">${(item.price * item.quantity).toFixed(2)}</td>
+                  <td className="py-2 sm:py-4 px-2">
                     <button onClick={() => removeItem(item.id)} className="text-red-500">
                       <X size={16} />
                     </button>
@@ -116,48 +116,48 @@ const Cart = () => {
             </tbody>
           </table>
 
-          <div className="mt-10 flex justify-between items-start">
-            <div className="flex space-x-5">
-              <button className="bg-gray-800 text-white px-5 py-2 rounded-full">
+          <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row justify-between items-start">
+            <div className="flex space-x-3 sm:space-x-5">
+              <button className="bg-gray-800 text-white px-4 sm:px-5 py-2 rounded-full text-sm sm:text-base">
                 Update Cart
               </button>
-              <button className="bg-gray-800 text-white px-5 py-2 rounded-full">
+              <button className="bg-gray-800 text-white px-4 sm:px-5 py-2 rounded-full text-sm sm:text-base">
                 Continue Shopping
               </button>
             </div>
-            <div className="w-1/3 p-5 border rounded-lg bg-gray-100">
-              <h2 className="text-xl font-semibold mb-4">CART TOTALS</h2>
-              <div className="flex justify-between mb-2 text-lg">
+            <div className="w-full sm:w-1/3 p-5 border rounded-lg bg-gray-100 mt-6 sm:mt-0">
+              <h2 className="text-lg sm:text-xl font-semibold mb-4">CART TOTALS</h2>
+              <div className="flex justify-between mb-2 text-base sm:text-lg">
                 <span>Subtotal</span>
                 <span>${subtotal.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between mb-4 text-lg font-semibold">
+              <div className="flex justify-between mb-4 text-base sm:text-lg font-semibold">
                 <span>Total</span>
                 <span>${total.toFixed(2)}</span>
               </div>
               <button
                 onClick={proceedToCheckout}
-                className="bg-gray-800 text-white px-4 py-2 rounded-full w-full"
+                className="bg-gray-800 text-white px-4 py-2 rounded-full w-full text-sm sm:text-base"
               >
                 Proceed To Checkout
               </button>
             </div>
           </div>
 
-          <div className="mt-8">
-            <h3 className="text-lg font-bold mb-2">Coupon</h3>
-            <p className="mb-2">Enter your coupon code if you have one.</p>
+          <div className="mt-6 sm:mt-8">
+            <h3 className="text-base sm:text-lg font-bold mb-2">Coupon</h3>
+            <p className="mb-2 text-sm sm:text-base">Enter your coupon code if you have one.</p>
             <div className="flex">
               <input
                 type="text"
                 value={couponCode}
                 onChange={(e) => setCouponCode(e.target.value)}
                 placeholder="Coupon Code"
-                className="border p-2 mr-2 w-full"
+                className="border p-2 mr-2 w-full text-sm sm:text-base"
               />
               <button
                 onClick={applyCoupon}
-                className="bg-gray-800 text-white px-4 py-2 rounded"
+                className="bg-gray-800 text-white px-4 py-2 rounded text-sm sm:text-base"
               >
                 Apply Coupon
               </button>
