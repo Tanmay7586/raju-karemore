@@ -1,7 +1,7 @@
 import React from "react";
 import "./About.css";
 import { Navbar } from "../Navbar/Navbar";
-import { AboutUs } from "./AboutUs/AboutUs";
+import  AboutUs  from "./AboutUs/AboutUs";
 import { Stands } from "./Stands/Stands";
 import { History } from "./History/History";
 import { Footer } from "../Footer/Footer";
